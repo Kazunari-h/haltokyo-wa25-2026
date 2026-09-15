@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - メニュー（タブ）</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .tabs button { padding: 8px 16px; border: 1px solid #ccc; background: #eee; cursor: pointer; }
+    .tabs button.active { background: #fff; border-bottom-color: #fff; }
+    .panel { display: none; border: 1px solid #ccc; padding: 16px; }
+    .panel.active { display: block; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>メニュー</h1>
+  <div class="tabs">
+    <button class="tab active" data-panel="drink">ドリンク</button>
+    <button class="tab" data-panel="sweets">スイーツ</button>
+    <button class="tab" data-panel="sweets">フード</button>
+  </div>
+  <div class="panel active" id="drink"><ul><li>カフェラテ</li><li>ブレンドコーヒー</li></ul></div>
+  <div class="panel" id="sweets"><ul><li>チーズケーキ</li><li>抹茶シフォン</li></ul></div>
+  <div class="panel" id="food"><ul><li>ホットサンド</li><li>キッシュ</li></ul></div>
+  <script>
+    document.querySelectorAll('.tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

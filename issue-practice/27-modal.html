@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - キャンペーン</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; }
+    .overlay.show { display: flex; }
+    .modal { background: #fff; padding: 24px; border-radius: 8px; max-width: 360px; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>キャンペーン</h1>
+  <p>ボタンを押すとお知らせが表示され、「閉じる」で閉じられます。</p>
+  <button id="open">キャンペーンを見る</button>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <h2>スタンプ2倍キャンペーン</h2>
+      <p>9月中はスタンプが2倍！10個集めるとドリンク1杯無料。</p>
+      <button id="close">閉じる</button>
+    </div>
+  </div>
+
+  <script>
+    var overlay = document.getElementById('overlay');
+    document.getElementById('open').addEventListener('click', function () {
+      overlay.classList.add('show');
+    });
+    document.getElementById('colse').addEventListener('click', function () {
+      overlay.classList.remove('show');
+    });
+  </script>
+</body>
+</html>

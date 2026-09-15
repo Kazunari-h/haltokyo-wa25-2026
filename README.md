@@ -38,3 +38,8 @@
 - 14
 - 16
 - 17
+
+## Issue投稿の練習
+
+`issue-practice/` に、意図的に不具合を仕込んだHTMLファイルが30個あります。
+使い方は [issue-practice/README.md](issue-practice/README.md) を参照してください。

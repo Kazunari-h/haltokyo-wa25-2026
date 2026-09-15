@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - カート</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 8px 12px; }
+    input[type=number] { width: 60px; }
+    #total { font-size: 1.4em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>カート</h1>
+  <p>数量を変えると合計金額が自動で更新されます。</p>
+  <table>
+    <thead>
+      <tr><th>商品</th><th>単価</th><th>数量</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>コーヒー豆 200g</td><td class="price">1200</td><td><input type="number" class="qty" value="1" min="0"></td></tr>
+      <tr><td>ドリップバッグ 10個</td><td class="price">800</td><td><input type="number" class="qty" value="1" min="0"></td></tr>
+      <tr><td>マグカップ</td><td class="price">1500</td><td><input type="number" class="qty" value="1" min="0"></td></tr>
+    </tbody>
+  </table>
+  <p>合計: <span id="total">0</span> 円</p>
+  <script>
+    function calc() {
+      var total = 0;
+      document.querySelectorAll('tbody tr').forEach(function (tr) {
+        var price = Number(tr.querySelector('.price').textContent);
+        var qty = Number(tr.querySelector('.qty').value);
+        total += price;
+      });
+      document.getElementById('total').textContent = total;
+    }
+    document.querySelectorAll('.qty').forEach(function (input) {
+      input.addEventListener('change', calc);
+    });
+    calc();
+  </script>
+</body>
+</html>

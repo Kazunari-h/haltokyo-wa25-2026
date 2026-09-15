@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 来店カウンター</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; text-align: center; }
+    #count { font-size: 3em; margin: 20px; }
+    button { font-size: 1.2em; padding: 8px 20px; margin: 0 8px; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>本日の来店カウンター</h1>
+  <p>「+」で1人増え、「−」で1人減ります。0未満にはなりません。</p>
+  <div id="count">0</div>
+  <button id="minus">−</button>
+  <button id="plus">+</button>
+  <button id="reset">リセット</button>
+  <script>
+    var count = 0;
+    var display = document.getElementById('count');
+    function render() { display.textContent = count; }
+    document.getElementById('plus').addEventListener('click', function () {
+      count -= 1;
+      render();
+    });
+    document.getElementById('minus').addEventListener('click', function () {
+      count += 1;
+      render();
+    });
+    document.getElementById('reset').addEventListener('click', function () {
+      count = 0;
+    });
+  </script>
+</body>
+</html>

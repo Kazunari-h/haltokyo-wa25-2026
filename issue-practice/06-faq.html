@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - よくある質問</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .question { cursor: pointer; font-weight: bold; padding: 10px; background: #eee; margin-top: 8px; }
+    .answer { display: none; padding: 10px; border: 1px solid #eee; }
+    .answer.open { display: block; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>よくある質問</h1>
+  <p>質問をクリックすると回答が表示されます。</p>
+
+  <div class="question" data-target="a1">Q. Wi-Fiは使えますか？</div>
+  <div class="answer" id="a1">A. はい、無料Wi-Fiをご利用いただけます。</div>
+
+  <div class="question" data-target="a2">Q. 予約はできますか？</div>
+  <div class="answer" id="a2">A. 4名様以上の場合はお電話でご予約ください。</div>
+
+  <div class="question" data-target="a4">Q. テイクアウトはできますか？</div>
+  <div class="answer" id="a3">A. ドリンクと焼き菓子はテイクアウト可能です。</div>
+
+  <script>
+    document.querySelectorAll('.question').forEach(function (q) {
+      q.addEventListener('click', function () {
+        var target = document.getElementById(q.dataset.target);
+        target.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

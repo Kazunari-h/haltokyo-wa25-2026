@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 席の予約</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .row { margin-top: 12px; }
+    input, select { padding: 6px; }
+    .btn { display: inline-block; background: #3a7; color: #fff; padding: 8px 16px; border-radius: 4px; margin-top: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>席の予約</h1>
+  <p>キーボードのTabキーだけでも操作できるフォームです。</p>
+  <div class="row">
+    お名前: <input type="text" id="name">
+  </div>
+  <div class="row">
+    人数:
+    <select id="people">
+      <option>1</option><option>2</option><option>3</option><option>4</option>
+    </select>
+  </div>
+  <div class="row">
+    希望日: <input type="date" id="date">
+  </div>
+  <div class="btn" onclick="alert('予約を受け付けました')">予約する</div>
+  <div class="btn" style="background:#999" onclick="location.href='01-index.html'">キャンセル</div>
+</body>
+</html>

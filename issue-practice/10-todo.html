@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 仕込みTODO</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    li { margin: 6px 0; }
+    li button { margin-left: 8px; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>仕込みTODOリスト</h1>
+  <p>入力して「追加」を押すとリストに追加され、「削除」で消えます。</p>
+  <input type="text" id="task" placeholder="例: 豆を焙煎する">
+  <button id="add">追加</button>
+  <ul id="list"></ul>
+  <script>
+    var input = document.getElementById('task');
+    var list = document.getElementById('list');
+    document.getElementById('add').addEventListener('click', function () {
+      var li = document.createElement('li');
+      li.textContent = input.value;
+      var del = document.createElement('button');
+      del.textContent = '削除';
+      del.addEventListener('click', function () {
+        list.removeChild(del);
+      });
+      li.appendChild(del);
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>

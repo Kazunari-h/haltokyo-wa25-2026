@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 現在時刻</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; text-align: center; }
+    #clock { font-size: 2.5em; margin-top: 20px; }
+    #date { color: #666; }
+  </style>
+</body>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>現在時刻</h1>
+  <p>「2026/09/15 09:05:03」の形式で、1秒ごとに更新されます。</p>
+  <div id="date"></div>
+  <div id="clock"></div>
+  <script>
+    function update() {
+      var now = new Date();
+      var y = now.getFullYear();
+      var m = now.getMonth();
+      var d = now.getDate();
+      var h = now.getHours();
+      var mi = now.getMinutes();
+      var s = now.getSeconds();
+      document.getElementById('date').textContent = y + '/' + m + '/' + d;
+      document.getElementById('clock').textContent = h + ':' + mi + ':' + s;
+    }
+    update();
+    setInterval(update, 1000);
+  </script>
+</body>
+</html>

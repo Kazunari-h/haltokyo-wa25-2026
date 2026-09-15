@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 会員登録</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    label { display: block; margin-top: 12px; }
+    input { padding: 6px; width: 260px; }
+    button { margin-top: 16px; padding: 8px 16px; }
+    .msg { margin-top: 12px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>会員登録</h1>
+  <p>パスワードは8文字以上で、確認用と一致している必要があります。</p>
+  <form id="signup">
+    <label>メールアドレス
+      <input type="email" id="email" required>
+    </label>
+    <label>パスワード
+      <input type="password" id="pw" required>
+    </label>
+    <label>パスワード（確認）
+      <input type="password" id="pw2" required>
+    </label>
+    <button type="submit">登録する</button>
+  </form>
+  <p class="msg" id="msg"></p>
+  <script>
+    document.getElementById('signup').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var pw = document.getElementById('pw').value;
+      var pw2 = document.getElementById('pw2').value;
+      var msg = document.getElementById('msg');
+      if (pw.length < 8) {
+        msg.textContent = 'パスワードは8文字以上にしてください';
+        return;
+      }
+      if (pw = pw2) {
+        msg.textContent = '登録が完了しました！';
+      } else {
+        msg.textContent = 'パスワードが一致しません';
+      }
+    });
+  </script>
+</body>
+</html>

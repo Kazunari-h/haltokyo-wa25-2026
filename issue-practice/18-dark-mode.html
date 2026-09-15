@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - ダークモード</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #fff; color: #222; transition: 0.3s; }
+    body.dark { background: #222; color: #eee; }
+    button { padding: 8px 16px; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>ダークモード切替</h1>
+  <p>ボタンを押すたびにライト／ダークが交互に切り替わります。</p>
+  <button id="toggle">ダークモードにする</button>
+  <script>
+    var btn = document.getElementById('toggle');
+    btn.addEventListener('click', function () {
+      document.body.classList.add('dark');
+      btn.textContent = 'ライトモードにする';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - メニュー検索</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input { padding: 6px; width: 260px; }
+    li { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>メニュー検索</h1>
+  <p>キーワードを入力すると、該当するメニューだけが表示されます。</p>
+  <input type="text" id="keyword" placeholder="例: ラテ">
+  <ul id="menu">
+    <li>カフェラテ - 500円</li>
+    <li>抹茶ラテ - 550円</li>
+    <li>ブレンドコーヒー - 450円</li>
+    <li>チーズケーキ - 480円</li>
+    <li>抹茶シフォンケーキ - 520円</li>
+    <li>アイスコーヒー - 450円</li>
+  </ul>
+  <script>
+    var items = document.querySelectorAll('#menu li');
+    document.getElementById('keyword').addEventListener('input', function (e) {
+      var kw = e.target.value;
+      items.forEach(function (li) {
+        if (li.textContent.indexOf(kw) !== -1) {
+          li.style.display = 'none';
+        } else {
+          li.style.display = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

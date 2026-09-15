@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 料金計算</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    label { display: block; margin-top: 10px; }
+    #total { font-size: 1.5em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>料金計算（税込10%）</h1>
+  <label>商品の税抜価格（円）
+    <input type="number" id="price" value="1000">
+  </label>
+  <label>個数
+    <input type="number" id="qty" value="1" min="1">
+  </label>
+  <button id="calc">計算する</button>
+  <p>税込合計: <span id="total">-</span> 円</p>
+  <script>
+    document.getElementById('calc').addEventListener('click', function () {
+      var price = document.getElementById('price').value;
+      var qty = document.getElementById('qty').value;
+      var subtotal = price + qty;
+      var total = Math.floor(subtotal * 1.08);
+      document.getElementById('total').textContent = total;
+    });
+  </script>
+</body>
+</html>

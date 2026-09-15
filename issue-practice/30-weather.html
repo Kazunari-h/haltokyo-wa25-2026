@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 今日の天気</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .card { border: 1px solid #ddd; padding: 16px; border-radius: 8px; max-width: 300px; }
+    .temp { font-size: 2em; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>新宿の今日の天気</h1>
+  <p>テラス席の利用可否の参考にどうぞ。</p>
+  <div class="card">
+    <div id="condition"></div>
+    <div class="temp"><span id="temp"></span> ℃</div>
+    <div>湿度: <span id="humidity"></span> %</div>
+    <div>テラス席: <span id="terrace"></span></div>
+  </div>
+  <script>
+    var data = {
+      condition: '晴れ',
+      temperature: 77,
+      humidty: 55,
+      rain: false
+    };
+    document.getElementById('condition').textContent = data.condition;
+    document.getElementById('temp').textContent = data.temperature;
+    document.getElementById('humidity').textContent = data.humidity;
+    document.getElementById('terrace').textContent = data.rain ? '利用可' : '利用不可';
+  </script>
+</body>
+</html>

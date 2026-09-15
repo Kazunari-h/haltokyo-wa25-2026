@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - お問い合わせ</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    label { display: block; margin-top: 12px; }
+    input, textarea { width: 100%; max-width: 400px; padding: 6px; }
+    button { margin-top: 16px; padding: 8px 16px; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>お問い合わせ</h1>
+  <p>必須項目（<span style="color:red">*</span>）をすべて入力して送信してください。</p>
+  <form>
+    <label>お名前 <span style="color:red">*</span>
+      <input type="text" name="name">
+    </label>
+    <label>メールアドレス <span style="color:red">*</span>
+      <input type="text" name="email">
+    </label>
+    <label>お問い合わせ内容 <span style="color:red">*</span>
+      <textarea name="message" rows="5"></textarea>
+    </label>
+    <button type="button">送信する</button>
+  </form>
+  <p id="result"></p>
+</body>
+</html>

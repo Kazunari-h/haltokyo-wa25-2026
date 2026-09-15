@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 抽出タイマー</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; text-align: center; }
+    #time { font-size: 3em; margin: 20px; }
+    button { font-size: 1.1em; padding: 8px 20px; margin: 0 6px; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>ハンドドリップ抽出タイマー</h1>
+  <p>1秒ごとにカウントアップします。「ストップ」で停止、「リセット」で0に戻ります。</p>
+  <div id="time">0</div>
+  <button id="start">スタート</button>
+  <button id="stop">ストップ</button>
+  <button id="reset">リセット</button>
+  <script>
+    var sec = 0;
+    var timer = null;
+    var display = document.getElementById('time');
+    document.getElementById('start').addEventListener('click', function () {
+      timer = setInterval(function () {
+        sec++;
+        display.textContent = sec;
+      }, 500);
+    });
+    document.getElementById('stop').addEventListener('click', function () {
+      clearInterval(timer);
+    });
+    document.getElementById('reset').addEventListener('click', function () {
+      sec = 0;
+      display.textContent = sec;
+    });
+  </script>
+</body>
+</html>

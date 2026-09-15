@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - 評価</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .star { font-size: 2em; cursor: pointer; color: #ccc; }
+    .star.on { color: #f5a623; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>お店の評価</h1>
+  <p>星をクリックすると、その星までが黄色になります（5段階）。</p>
+  <div id="stars">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+  </div>
+  <p>あなたの評価: <span id="score">未評価</span></p>
+  <script>
+    var stars = document.querySelectorAll('.star');
+    stars.forEach(function (star) {
+      star.addEventListener('click', function () {
+        var value = Number(star.dataset.value);
+        stars.forEach(function (s, i) {
+          if (i <= value) {
+            s.classList.add('on');
+          } else {
+            s.classList.remove('on');
+          }
+        });
+        document.getElementById('score').textContent = value + ' / 5';
+      });
+    });
+  </script>
+</body>
+</html>

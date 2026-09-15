@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAL Cafe - コーヒークイズ</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .choice { display: block; margin: 8px 0; padding: 8px 16px; }
+    #result { font-weight: bold; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <a href="01-index.html">← トップへ戻る</a>
+  <h1>コーヒークイズ</h1>
+  <p>Q. コーヒーの生産量が世界で最も多い国はどこ？</p>
+  <button class="choice" data-answer="colombia">コロンビア</button>
+  <button class="choice" data-answer="brazil">ブラジル</button>
+  <button class="choice" data-answer="vietnam">ベトナム</button>
+  <button class="choice" data-answer="ethiopia">エチオピア</button>
+  <p id="result"></p>
+  <script>
+    var correct = 'brasil';
+    document.querySelectorAll('.choice').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var result = document.getElementById('result');
+        if (btn.dataset.answer === correct) {
+          result.textContent = '正解！ブラジルは世界一のコーヒー生産国です。';
+        } else {
+          result.textContent = '不正解… もう一度挑戦してみよう。';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
